@@ -1,0 +1,101 @@
+
+.AudioBodyApod{
+    overflow-x: hidden; 
+}
+
+.AudioSmallImage{
+    padding-top: 70px;
+}
+
+.AudioBodyApod img{
+    width:100%;
+}
+
+.AudioTitle, .AudioDate, .AudioPhotographer{
+    flex:1
+}
+
+.AudioDate{
+    font-size: 1.6rem;}
+
+.AudioTitle{
+    letter-spacing: 0.3rem;
+    font-size: 1.8rem;
+    margin-left:90px;
+    padding-top: 40px;
+    transition: transform .5s ease;
+}
+
+.AudioPhotographer{
+    letter-spacing: 0.2rem;
+    font-size: 1.6rem;
+    margin-left:60px;
+}
+
+.AudioTitle:hover{
+    transform:scale(1.05,1.05) translateX(30px);
+}
+
+.AudioExplanation{
+    letter-spacing: 0.1rem;
+    padding-top: 60px;
+    font-size: 1.2rem;
+    margin-left:50px;
+    max-width: 1200px;
+    font-weight: 500;
+    
+}
+
+.AudioSmallImage{
+    width: 300px!important;
+}
+
+.AudioMainImage{
+    margin-top: 10rem;
+    height: 10vh;
+    width: 10%!important;
+}
+    
+.AudioInfoApod{
+    display:flex;
+    margin: 0px 30px;
+    flex-direction: column;
+    text-align: center;
+    }
+
+.AudioExplanation{
+    display: flex;
+    justify-content: center;
+    margin:auto;
+    width: 100%;
+    padding-top: 30px;
+    font-size: 1rem;
+    letter-spacing: 0.2;
+    font-weight: 500;
+    }
+
+.AudioTitle{
+    display: flex;
+    justify-content: center;
+    margin-left:0px;
+    padding-top: 40px  0px;
+    margin: 0px 20px;
+    font-size:1.4rem!important;
+}
+
+.AudioPhotographer{
+    display: flex;
+    justify-content: center;
+    margin-left:0px;
+    font-size:1.2rem!important;
+    }
+
+.AudioSmallImage{
+    width: 300px!important;
+    padding-top:30px;
+    }
+
+.AudioDate{
+    font-size:1.4rem!important;
+    padding-top:30px;
+    }
