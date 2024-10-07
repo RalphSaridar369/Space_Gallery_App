@@ -1,118 +1,110 @@
 .App {
   text-align: center;
-  padding:0;
-  margin:0;
-  box-sizing:border-box;
-  font-family: 'Roboto Mono', monospace;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
 }
 
-.bodyItem{
-  margin-bottom:80px; 
-  flex:1
+.bodyItem {
+  margin-bottom: 80px;
+  flex: 1;
 }
 
-.bodyItem .linkedImg img{
-  width:300px!important;
-  height:300px!important;
+.bodyItem .linkedImg img {
+  width: 300px !important;
+  height: 300px !important;
   min-width: 50%;
   min-height: 50%;
   transition: transform 0.5s ease-in;
 }
 
-.bodyItem .linkedImg img:hover{
-  transform: scale(1.05,1.05);
+.bodyItem .linkedImg img:hover {
+  transform: scale(1.05, 1.05);
 }
 
-.bodyItem div{
-  color:black;
+.bodyItem div {
+  color: black;
 }
 
-
-.imgItem{
+.imgItem {
   width: 200px;
 }
 
-
-
-.nav-links{
-  width:40%;
+.nav-links {
+  width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   list-style: none;
 }
 
-.h2Label:hover{
-    animation: rotate ease-in-out 2s;  
+.h2Label:hover {
+  animation: rotate ease-in-out 2s;
 }
 
-
-
-@keyframes rotate{
-  0%{
+@keyframes rotate {
+  0% {
     transform: rotateY(-355deg);
   }
-  100%{
+  100% {
     transform: rotateY(-180deg);
   }
 }
 
 /* Item */
 
-.BodyItems{
-  display:grid;
+.BodyItems {
+  display: grid;
   grid-template-columns: 20% 20% 20% 20%;
   justify-content: space-between;
   margin-top: 3rem;
   padding: 0 20px;
 }
 
-.hl{
+.hl {
   width: 400px;
 }
 
-@media only screen and (max-width: 1240px){
-
-  .BodyItems{
-    padding:0 20px; 
-    display:grid;
+@media only screen and (max-width: 1240px) {
+  .BodyItems {
+    padding: 0 20px;
+    display: grid;
     justify-content: space-between;
     grid-template-columns: 33% 33% 33%;
   }
-
 }
-@media only screen and (max-width: 1000px){
-  .MainHeader{
-    width:100%;
+@media only screen and (max-width: 1000px) {
+  .MainHeader {
+    width: 100%;
   }
 
-  .BodyItems{
-    display:grid;
+  .BodyItems {
+    display: grid;
     justify-content: space-between;
     grid-template-columns: 50% 50%;
   }
-  
-  .searchbar{
-    max-width: 50%!important;
+
+  .searchbar {
+    max-width: 50% !important;
     visibility: visible;
   }
-
 }
 
-@media only screen and (max-width: 660px){
-  .BodyItems{
-    display:grid;
+@media only screen and (max-width: 660px) {
+  .BodyItems {
+    display: grid;
     grid-template-columns: 100%;
   }
 
-  .body div p{
-    font-size:16px!important;
+  .body div p {
+    font-size: 16px !important;
   }
 }
 
-@media only screen and (max-width: 430px){
-  .hl{
-    width: 300px!important;
+@media only screen and (max-width: 430px) {
+  .hl {
+    width: 300px !important;
     padding-top: 20px;
   }
 }

@@ -1,12 +1,12 @@
 .MainHeader {
-  z-index: 10000 !important;
+  z-index: 10 !important;
   position: fixed !important;
   top: 0px !important;
   width: 100% !important;
   display: "flex";
   justify-content: "space-between";
   min-height: "10vh";
-  background-color: "rgba(33, 56, 74,0.2)";
+  background: rgba(33, 56, 74, 0.2);
 }
 
 .MainHeader h2 {
@@ -15,9 +15,9 @@
 
 .headerLinks {
   text-decoration: "none";
-  font-size: "24px";
+  font-size: 24px;
   color: "black";
-  padding-right: "100px";
+  padding-right: 100px !important;
 }
 
 .headerLinks h3 {

@@ -1,8 +1,8 @@
 import "./App.css";
 import ItemDetailed from "./ItemDetailed";
 import Header from "./components/header/Header";
-import Home from "./Home";
-import About from "./About";
+import Home from "./pages/home/Home";
+import About from "./pages/about/About";
 import Apod from "./Apod";
 
 import React from "react";

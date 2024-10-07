@@ -1,0 +1,56 @@
+.About-Container {
+  background-image: url("../../images/about-background.jpg");
+  background-size: "cover";
+  height: 100vh;
+  overflow-y: "hidden";
+}
+
+.About-Container div {
+  overflow-x: "hidden";
+  min-width: 300px;
+  height: 100vh;
+  padding-top: 2rem;
+  display: "flex" !important;
+  flex-direction: "column" !important;
+  justify-content: "center" !important;
+  align-items: "center" !important;
+}
+
+.sh {
+  width: 100px;
+  opacity: 0;
+  transition: opacity 3s;
+}
+
+.sh:hover {
+  opacity: 100%;
+}
+
+.AboutDescription {
+  font-size: 1.1rem;
+  font-weight: 550;
+  color: black;
+  margin-top: "6rem";
+  letter-spacing: "0.2rem";
+  max-width: "400px";
+  display: "flex";
+  justify-content: "center";
+  flex: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .h2Label {
+    margin-top: 100px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .AboutDescription {
+    max-width: 70%;
+    width: 70%;
+    font-size: 0.9rem !important;
+    font-weight: 550;
+  }
+}
