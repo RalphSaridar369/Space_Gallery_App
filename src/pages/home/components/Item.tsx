@@ -13,7 +13,6 @@ const Item = (props) => {
     marginTop: "30px",
   };
 
-  // Define 'data' as a string array outside of the conditions
   let data: string[] = [];
 
   useEffect(() => {
@@ -37,7 +36,7 @@ const Item = (props) => {
         }
         data.push(props.Media.media_type);
       });
-  }, [props.Media.nasa_id]); // Add dependency on nasa_id
+  }, [props.Media.nasa_id]);
 
   // Handle audio type
   if (props.Media.media_type === "audio") {

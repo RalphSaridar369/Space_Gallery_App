@@ -1,18 +1,14 @@
 import "../../App.css";
+import "./SearchInput.css";
 
 const SearchInput = (props) => {
   return (
     <form action="" onSubmit={props.submit}>
-      <div className="search-form" style={props.searchBarStyle}>
-        <input
-          type="text"
-          className="searchbar"
-          onChange={props.search}
-          style={props.searchInputStyle}
-        />
+      <div className="search-bar">
+        <input type="text" className="search-input" onChange={props.search} />
         <button
           type="submit"
-          className="searchButton"
+          className="search-submit-button"
           style={props.submitStyle}
         >
           Search

@@ -16,8 +16,7 @@ const SearchBar: React.FC = () => {
 
   useEffect(() => {
     if (quotes.length > 0) {
-      // Check if quotes array is not empty
-      const number = Math.floor(Math.random() * quotes.length); // Use quotes.length
+      const number = Math.floor(Math.random() * quotes.length);
       setQuote(quotes[number]?.quote || "");
       setAuthor(quotes[number]?.author || "");
     }
@@ -39,42 +38,18 @@ const SearchBar: React.FC = () => {
     });
   };
 
-  const styledSearchInput = {
-    width: "500px",
-    textAlign: "center",
-    height: "34px",
-    marginTop: "1px",
-  };
-
-  const styledSubmitButton = {
-    letterSpacing: "0.1rem",
-    height: "34.5px",
-    backgroundColor: "transparent",
-    border: "1px solid gray",
-  };
-
-  const searchBarMain = {
-    paddingTop: "2rem",
-  };
-
   const body = {
     paddingTop: "6rem",
   };
 
-  if (buttonPressed && loading) {
-    return (
-      <div className="body" style={body}>
-        <div className="quotes-container">
-          <p className="Quotes-Quote">{quote}</p>
-          <p className="Quotes-Author">{author}</p>
-          <SearchInput
-            search={changeSearch}
-            submit={submitSearch}
-            searchBarStyle={searchBarMain}
-            submitStyle={styledSubmitButton}
-            searchInputStyle={styledSearchInput}
-          />
-        </div>
+  return (
+    <div className="body" style={body}>
+      <div className="quotes-container">
+        <p className="Quotes-Quote">{quote}</p>
+        <p className="Quotes-Author">{author}</p>
+        <SearchInput search={changeSearch} submit={submitSearch} />
+      </div>
+      {buttonPressed && loading ? (
         <div>
           <img
             src={require("../../images/loadingHome.gif")}
@@ -82,24 +57,9 @@ const SearchBar: React.FC = () => {
             alt="loading"
           />
         </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="body" style={body}>
-      <div className="Quotes">
-        <p>{quote}</p>
-        <p>{author}</p>
-        <SearchInput
-          search={changeSearch}
-          submit={submitSearch}
-          searchBarStyle={searchBarMain}
-          submitStyle={styledSubmitButton}
-          searchInputStyle={styledSearchInput}
-        />
-      </div>
-      <Results results={data} />
+      ) : (
+        <Results results={data} />
+      )}
     </div>
   );
 };

@@ -1,19 +1,18 @@
 .quotes-container {
   width: "100%";
-  background-color: red;
 }
 
 .Quotes-Quote {
-  letter-spacing: "0.15rem";
-  font-size: "1.4em";
+  letter-spacing: 0.15rem;
+  font-size: 1.4em;
   font-style: "italic";
   margin: "0rem 20px";
   padding-top: "2rem";
 }
 
 .Quotes-Author {
-  letter-spacing: "0.1rem";
-  font-size: "1.2em";
+  letter-spacing: 0.1rem;
+  font-size: 1.2em;
   font-style: "italic";
   margin: "2rem 20px";
 }
