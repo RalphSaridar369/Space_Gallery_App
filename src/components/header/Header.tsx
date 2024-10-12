@@ -6,13 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { routes } from "./Static";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-      <Navbar expand="lg" variant="dark" className="MainHeader">
+      <Navbar expand="lg" variant="dark" className="main-header">
         <Navbar.Brand
           style={{
             flex: 1,
@@ -20,13 +16,13 @@ class Header extends Component {
             display: "flex",
             alignItems: "flex-start",
           }}
-          className="brandHolder"
+          className="brand-holder"
           href="/"
         >
           <h2>Space Library</h2>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="hamburger" />
-        <Navbar.Collapse id="basic-navbar-nav" className="hamburger">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav
             className="mr-auto"
             style={{
@@ -38,8 +34,8 @@ class Header extends Component {
               width: "20%",
             }}
           >
-            {routes.map((route) => (
-              <Nav.Link className="headerLinks" href={route.link}>
+            {routes.map((route, index) => (
+              <Nav.Link className="header-links" href={route.link} key={index}>
                 <h3>{route.text}</h3>
               </Nav.Link>
             ))}

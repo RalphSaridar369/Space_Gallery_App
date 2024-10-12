@@ -6,7 +6,7 @@ import axios from "axios";
 import { quotes } from "./Static";
 import "./Home.css";
 
-const SearchBar: React.FC = () => {
+const Home: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [buttonPressed, setButtonPressed] = useState(false);
   const [searchInput, setSearchInput] = useState("");
@@ -34,7 +34,6 @@ const SearchBar: React.FC = () => {
     axios.get(query).then((res) => {
       setData(res.data.collection.items);
       setLoading(false);
-      console.log(res.data.collection.items);
     });
   };
 
@@ -64,4 +63,4 @@ const SearchBar: React.FC = () => {
   );
 };
 
-export default SearchBar;
+export default Home;

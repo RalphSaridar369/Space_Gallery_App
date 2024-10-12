@@ -22,12 +22,13 @@
   background: #555;
 }
 
-.bodyItem {
+.item-body {
+  text-decoration: none;
   margin-bottom: 80px;
   flex: 1;
 }
 
-.bodyItem .linkedImg img {
+.item-body .item-image-container img {
   width: 300px !important;
   height: 300px !important;
   min-width: 50%;
@@ -35,11 +36,11 @@
   transition: transform 0.5s ease-in;
 }
 
-.bodyItem .linkedImg img:hover {
+.item-body .item-image-container img:hover {
   transform: scale(1.05, 1.05);
 }
 
-.bodyItem div {
+.item-body div {
   color: black;
 }
 
@@ -70,7 +71,7 @@
 
 /* Item */
 
-.BodyItems {
+.items-body {
   display: grid;
   grid-template-columns: 20% 20% 20% 20%;
   justify-content: space-between;
@@ -83,7 +84,7 @@
 }
 
 @media only screen and (max-width: 1240px) {
-  .BodyItems {
+  .items-body {
     padding: 0 20px;
     display: grid;
     justify-content: space-between;
@@ -91,24 +92,30 @@
   }
 }
 @media only screen and (max-width: 1000px) {
-  .MainHeader {
+  .main-header {
     width: 100%;
   }
 
-  .BodyItems {
+  .items-body {
     display: grid;
     justify-content: space-between;
     grid-template-columns: 50% 50%;
   }
 
   .search-bar {
-    max-width: 50% !important;
-    visibility: visible;
+    max-width: 100% !important;
+    min-width: 60% !important;
+    margin: 0px 20px;
+  }
+
+  .search-input {
+    max-width: 100% !important;
+    min-width: 60%;
   }
 }
 
 @media only screen and (max-width: 660px) {
-  .BodyItems {
+  .items-body {
     display: grid;
     grid-template-columns: 100%;
   }

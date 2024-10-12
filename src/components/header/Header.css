@@ -1,4 +1,4 @@
-.MainHeader {
+.main-header {
   z-index: 10 !important;
   position: fixed !important;
   top: 0px !important;
@@ -9,18 +9,18 @@
   background: rgba(33, 56, 74, 0.2);
 }
 
-.MainHeader h2 {
+.main-header h2 {
   color: white;
 }
 
-.headerLinks {
+.header-links {
   text-decoration: "none";
   font-size: 24px;
   color: "black";
   padding-right: 100px !important;
 }
 
-.headerLinks h3 {
+.header-links h3 {
   color: white;
   font-size: "24px";
   font-weight: 590;
@@ -31,26 +31,22 @@
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-.brandHolder h2 {
+.brand-holder h2 {
   font-weight: 600 !important;
 }
 
 @media only screen and (max-width: 660px) {
-  .MainHeader h2 {
+  .main-header h2 {
     font-size: 25px;
   }
 
-  .headerLinks h3 {
+  .header-links h3 {
     font-size: 20px !important;
-  }
-
-  .hamburger {
-    margin-left: 5rem !important;
   }
 }
 
 @media only screen and (max-width: 340px) {
-  .brandHolder {
+  .brand-holder {
     padding-left: 5px !important;
   }
 }

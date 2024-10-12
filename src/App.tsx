@@ -1,11 +1,10 @@
 import "./App.css";
-import ItemDetailed from "./ItemDetailed";
+import ItemDetailed from "./pages/home/components/ItemDetailed";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
-import Apod from "./Apod";
+import Apod from "./pages/apod/Apod";
 
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {

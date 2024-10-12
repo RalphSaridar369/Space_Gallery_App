@@ -2,35 +2,21 @@ import "./About.css";
 
 const About = () => {
   return (
-    <div className="About-Container">
-      <div>
-        <p className="AboutDescription">
-          We try our best to bring the best outcome of a project. this project
-          was meant to create an interface showing up information related to
-          Space all while using the NASA API. Thank you for visiting.
+    <div className="about-container">
+      <div className="inner-about-container">
+        <p className="about-description">
+          I’ve always been fascinated by space images and astrophysics, which
+          inspired me to create this app. Using TypeScript, React, and NASA’s
+          API, I developed an interface to showcase space-related information
+          and images. Thank you for visiting.
         </p>
-        <p className="AboutDescription">
+        <p className="about-description">
           Sincerely.
           <br />
           Ralph Saridar.
         </p>
         <img src={require("../../images/nirv.png")} className="sh" />
       </div>
-      {/* <div className="About-Inner-Container">
-        <div className="About-Inner-Body">
-          <p style={aboutDescription} className="AboutDescription">
-            We try our best to bring the best outcome of a project. this project
-            was meant to create an interface showing up information related to
-            Space all while using the NASA API. Thank you for visiting.
-          </p>
-          <p style={aboutDescription} className="AboutDescription">
-            Sincerely.
-            <br />
-            Ralph Saridar.
-          </p>
-          <img src={require("../../images/nirv.png")} className="sh" />
-        </div>
-      </div> */}
     </div>
   );
 };

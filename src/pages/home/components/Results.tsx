@@ -3,9 +3,9 @@ import "../../../App.css";
 
 const Results = (props) => {
   return (
-    <div className="BodyItems">
+    <div className="items-body">
       {props.results.map((item, i) => {
-        return <Item key={i} Media={item.data[0]} Details={item} />;
+        return <Item key={i} item={item} />;
       })}
     </div>
   );

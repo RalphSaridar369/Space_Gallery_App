@@ -1,19 +1,18 @@
-.About-Container {
+.about-container {
   background-image: url("../../images/about-background.jpg");
-  background-size: "cover";
+  background-size: cover;
   height: 100vh;
-  overflow-y: "hidden";
+  overflow-y: hidden;
 }
 
-.About-Container div {
-  overflow-x: "hidden";
-  min-width: 300px;
+.inner-about-container {
+  overflow-x: hidden;
   height: 100vh;
-  padding-top: 2rem;
-  display: "flex" !important;
-  flex-direction: "column" !important;
-  justify-content: "center" !important;
-  align-items: "center" !important;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sh {
@@ -26,15 +25,15 @@
   opacity: 100%;
 }
 
-.AboutDescription {
+.about-description {
   font-size: 1.1rem;
   font-weight: 550;
   color: black;
-  margin-top: "6rem";
-  letter-spacing: "0.2rem";
-  max-width: "400px";
-  display: "flex";
-  justify-content: "center";
+  margin-top: 6rem;
+  letter-spacing: 0.2rem;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
   flex: 1;
 }
 
@@ -47,7 +46,7 @@
     font-size: 16px;
   }
 
-  .AboutDescription {
+  .about-description {
     max-width: 70%;
     width: 70%;
     font-size: 0.9rem !important;
