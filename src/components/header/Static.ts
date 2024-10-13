@@ -4,11 +4,11 @@ export const routes = [
     text: "Home",
   },
   {
-    link: "/apod/",
+    link: "/apod",
     text: "Apod",
   },
   {
-    link: "/about/",
+    link: "/about",
     text: "About",
   },
 ];
