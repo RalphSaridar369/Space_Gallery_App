@@ -5,11 +5,13 @@
 
 .apod-loading-container {
   overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
-.apod-loading-image {
+.apod-loading-container img {
   opacity: 0.9;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow-y: hidden;
 }

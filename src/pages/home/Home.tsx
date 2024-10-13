@@ -2,17 +2,16 @@ import "../../App.css";
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import SearchInput from "../../components/searchInput/SearchInput";
 import Results from "./components/Results";
-import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 import { quotes } from "./Static";
 import "./Home.css";
+import { fetchImages } from "../../api";
 
 const Home: React.FC = () => {
-  const [loading, setLoading] = useState(true);
   const [buttonPressed, setButtonPressed] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
-  const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
     if (quotes.length > 0) {
@@ -22,6 +21,16 @@ const Home: React.FC = () => {
     }
   }, []);
 
+  const {
+    data = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["nasaImages", searchInput],
+    queryFn: () => fetchImages(searchInput),
+    enabled: false,
+  });
+
   const changeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
   };
@@ -29,12 +38,7 @@ const Home: React.FC = () => {
   const submitSearch = (e: FormEvent) => {
     e.preventDefault();
     setButtonPressed(true);
-    setLoading(true);
-    const query = `https://images-api.nasa.gov/search?q=${searchInput}`;
-    axios.get(query).then((res) => {
-      setData(res.data.collection.items);
-      setLoading(false);
-    });
+    refetch();
   };
 
   const body = {
@@ -48,7 +52,7 @@ const Home: React.FC = () => {
         <p className="Quotes-Author">{author}</p>
         <SearchInput search={changeSearch} submit={submitSearch} />
       </div>
-      {buttonPressed && loading ? (
+      {buttonPressed && isLoading ? (
         <div>
           <img
             src={require("../../images/loadingHome.gif")}
@@ -57,7 +61,7 @@ const Home: React.FC = () => {
           />
         </div>
       ) : (
-        <Results results={data} />
+        <Results results={data || []} />
       )}
     </div>
   );

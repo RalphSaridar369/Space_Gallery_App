@@ -3,6 +3,7 @@ import "../../../App.css";
 import { Link } from "react-router-dom";
 
 const Item = (props) => {
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState<{
     title: string;
     photographer: string;
@@ -36,6 +37,7 @@ const Item = (props) => {
       nasa_id: props.item.data[0].nasa_id,
       href: href,
     });
+    setLoading(false);
   }, []);
 
   const styledImages = {
@@ -49,22 +51,26 @@ const Item = (props) => {
 
   return (
     <Link style={styledImages} className="item-body" to={`/${data.nasa_id}`}>
-      <div className="item-image-container">
-        <img
-          alt=""
-          style={styledImages}
-          src={
-            data.media_type === "video" || data.media_type === "image"
-              ? data.href
-              : require("../../../images/speaker.png")
-          }
-        />
-      </div>
+      {!loading && (
+        <>
+          <div className="item-image-container">
+            <img
+              alt=""
+              style={styledImages}
+              src={
+                data.media_type === "video" || data.media_type === "image"
+                  ? data.href
+                  : require("../../../images/speaker.png")
+              }
+            />
+          </div>
 
-      <div>
-        <h4 style={styledTitle}>{data.title}</h4>
-        <p>{data.photographer}</p>
-      </div>
+          <div>
+            <h4 style={styledTitle}>{data.title}</h4>
+            <p>{data.photographer}</p>
+          </div>
+        </>
+      )}
     </Link>
   );
 };
