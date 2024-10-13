@@ -8,7 +8,6 @@ import "./Home.css";
 import { fetchImages } from "../../api";
 
 const Home: React.FC = () => {
-  const [buttonPressed, setButtonPressed] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
@@ -37,22 +36,21 @@ const Home: React.FC = () => {
 
   const submitSearch = (e: FormEvent) => {
     e.preventDefault();
-    setButtonPressed(true);
     refetch();
   };
 
-  const body = {
+  const bodyStyle = {
     paddingTop: "6rem",
   };
 
   return (
-    <div className="body" style={body}>
+    <div className="body" style={bodyStyle}>
       <div className="quotes-container">
-        <p className="Quotes-Quote">{quote}</p>
-        <p className="Quotes-Author">{author}</p>
+        <p className="quotes-quote">{quote}</p>
+        <p className="quotes-author">{author}</p>
         <SearchInput search={changeSearch} submit={submitSearch} />
       </div>
-      {buttonPressed && isLoading ? (
+      {isLoading ? (
         <div>
           <img
             src={require("../../images/loadingHome.gif")}

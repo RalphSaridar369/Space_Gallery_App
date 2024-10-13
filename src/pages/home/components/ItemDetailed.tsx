@@ -1,119 +1,89 @@
 import "../../apod/Apod.css";
 import "../../../App.css";
 import "../Audio.css";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import { fetchItem, fetchItemImages } from "../../../api";
 
 const ItemDetailed = () => {
   const { id } = useParams();
 
-  const [data, setData] = useState<any>({});
-  const [loading, setLoading] = useState(true);
-  const [images, setImages] = useState<any>([]);
+  const {
+    data: itemData,
+    isLoading: itemLoading,
+    isError: itemError,
+  } = useQuery({
+    queryKey: ["itemData", id],
+    queryFn: () => fetchItem(id as string),
+  });
 
-  useEffect(() => {
-    const fetchItem = async () => {
-      const query = `https://images-api.nasa.gov/search?q=${id}`;
-      let res = await axios.get(query);
-      setData(res.data.collection.items[0]);
-    };
+  const {
+    data: images,
+    isLoading: imagesLoading,
+    isError: imagesError,
+  } = useQuery({
+    queryKey: ["itemImages", id],
+    queryFn: () => fetchItemImages(id as string),
+  });
 
-    const fetchItemImages = async () => {
-      const imagesQuery = `https://images-api.nasa.gov/asset/${id}`;
-      let res = await axios.get(imagesQuery);
-      setImages(res.data.collection.items);
-    };
-    const fetchData = async () => {
-      try {
-        await Promise.all([fetchItem(), fetchItemImages()]).then(() => {
-          setLoading(false);
-        });
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    fetchData();
-  }, [id]);
+  if (itemLoading || imagesLoading) return <div></div>;
+  if (itemError || imagesError) return <div>Error loading data...</div>;
 
-  if (loading) return <></>;
-  else {
-    if (data.data[0].media_type === "image") {
-      return (
-        <div className="body-apod">
-          <a href={images[1].href} target="_blank" rel="noreferrer">
-            <img src={images[1].href} className="main-image" alt="main-image" />
-          </a>
-          <h2 className="title">{data.data[0].title}</h2>
-          <div className="info-apod">
-            <h3 className="photographer">{data.data[0].photographer}</h3>
-            <h3 className="date">{data.data[0].date_created}</h3>
-            <h5 className="explanation">{data.data[0].description}</h5>
-            <a href={images[1].href} target="_blank" rel="noreferrer">
-              <img
-                className="small-image"
-                alt="small-image"
-                src={
-                  images.filter((image) => image?.href.includes("small"))[0]
-                    .href
-                }
-              />
-            </a>
-          </div>
-        </div>
-      );
-    } else if (data.data[0].media_type === "video") {
-      return (
-        <div className="body-apod">
-          <a href={images[1].href} target="_blank" rel="noreferrer">
-            <img src={images[1].href} className="main-image" alt="main-image" />
-          </a>
-          <h2 className="title">{data.data[0].title}</h2>
-          <div className="info-apod">
-            <h3 className="photographer">{data.data[0].photographer}</h3>
-            <h3 className="date">{data.data[0].date_created}</h3>
-            <h5 className="explanation">{data.data[0].description}</h5>
-            <a href={images[1].href} target="_blank" rel="noreferrer">
-              <img
-                className="small-image"
-                alt="small-image"
-                src={
-                  images.filter((image) => image?.href.includes("small"))[0]
-                    .href
-                }
-              />
-            </a>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="AudioBodyApod">
-          <a href={images[1].href} target="_blank" rel="noreferrer">
+  const mediaType = itemData.data[0].media_type;
+  const title = itemData.data[0].title;
+  const photographer = itemData.data[0].photographer;
+  const dateCreated = itemData.data[0].date_created;
+  const description = itemData.data[0].description;
+
+  const mainImageHref = images[1]?.href;
+  const smallImageHref = images.filter((image) =>
+    image?.href.includes("small")
+  )[0]?.href;
+
+  return (
+    <div className={mediaType === "audio" ? "audio-body-apod" : "body-apod"}>
+      <a href={mainImageHref} target="_blank" rel="noreferrer">
+        <img
+          src={mainImageHref}
+          className={mediaType === "audio" ? "audio-main-image" : "main-image"}
+          alt="main-image"
+        />
+      </a>
+      <h2 className={mediaType === "audio" ? "audio-title" : "title"}>
+        {title}
+      </h2>
+      <div className={mediaType === "audio" ? "audio-info-apod" : "info-apod"}>
+        <h3
+          className={
+            mediaType === "audio" ? "audio-photographer" : "photographer"
+          }
+        >
+          {photographer}
+        </h3>
+        <h3 className={mediaType === "audio" ? "audio-date" : "date"}>
+          {dateCreated}
+        </h3>
+        <h5
+          className={
+            mediaType === "audio" ? "audio-explanation" : "explanation"
+          }
+        >
+          {description}
+        </h5>
+        {smallImageHref && (
+          <a href={smallImageHref} target="_blank" rel="noreferrer">
             <img
-              src={require("../../../images/speaker.png")}
-              alt="main-image"
-              className="AudioMainImage"
+              className={
+                mediaType === "audio" ? "audio-small-image" : "small-image"
+              }
+              alt="small-image"
+              src={smallImageHref}
             />
           </a>
-          <h2 className="AudioTitle">{data[0]}</h2>
-          <div className="AudioInfoApod">
-            <h3 className="AudioPhotographer">{data.data[0].photographer}</h3>
-            <h3 className="AudioDate">{data.data[0].date_created}</h3>
-            <h5 className="AudioExplanation">{data.data[0].description}</h5>
-            <a href={images[0].href} target="_blank" rel="noreferrer">
-              <img
-                className="AudioSmallImage"
-                alt="small-image"
-                src={require("../../../images/speaker.png")}
-              />
-            </a>
-            <h1></h1>
-          </div>
-        </div>
-      );
-    }
-  }
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default ItemDetailed;

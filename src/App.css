@@ -69,8 +69,6 @@
   }
 }
 
-/* Item */
-
 .items-body {
   display: grid;
   grid-template-columns: 20% 20% 20% 20%;
@@ -103,13 +101,14 @@
   }
 
   .search-bar {
+    align-self: center;
     max-width: 100% !important;
     min-width: 60% !important;
     margin: 0px 20px;
   }
 
   .search-input {
-    max-width: 100% !important;
+    max-width: 70% !important;
     min-width: 60%;
   }
 }

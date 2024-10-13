@@ -12,7 +12,7 @@ const Apod = () => {
   if (isLoading) {
     return (
       <div className="apod-loading-container">
-        <img src={require("../../images/Loading.gif")} alt="Loading..." />
+        <img src={require("../../images/loading.gif")} alt="Loading..." />
       </div>
     );
   }
@@ -24,7 +24,7 @@ const Apod = () => {
   const { title, date, copyright, explanation, media_type, url: image } = data;
 
   const thumbnail =
-    media_type === "image" ? image : require("../../images/Video.gif");
+    media_type === "image" ? image : require("../../images/video.gif");
   const photographer = copyright || "Unknown";
 
   return (
