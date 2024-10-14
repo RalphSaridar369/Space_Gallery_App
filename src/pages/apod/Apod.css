@@ -65,13 +65,17 @@
 
 .explanation {
   letter-spacing: 0.1rem;
-  display: flex;
+  display: block;
   padding-top: 60px;
   font-size: 1.2rem;
   justify-content: flex-start;
   margin-left: 50px;
   max-width: 600px;
   font-weight: 500;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .small-image {
